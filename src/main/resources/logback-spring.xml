@@ -19,7 +19,7 @@
         <!--</filter>-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/service.%d{yyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>15</maxHistory>
+            <maxHistory>15</maxHistory>.
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juncdt.datav.dao.AdTotalAddMapper">
+  <resultMap id="BaseResultMap" type="com.juncdt.datav.model.AdAdd">
+    <result column="ad_distribution" jdbcType="VARCHAR" property="adDistribution" />
+    <result column="ad_num" jdbcType="VARCHAR" property="adNum" />
+    <result column="added" jdbcType="VARCHAR" property="added" />
+  </resultMap>
+  <select id="queryTotalAdd" resultMap="BaseResultMap">
+     SELECT ad_distribution,ad_num,added FROM ad_total_add
+  </select>
+</mapper>
