@@ -7,6 +7,6 @@
       <result column="value" jdbcType="VARCHAR" property="value" />
    </resultMap>
    <select id="queryAdMediumTwo" resultMap="BaseResultMap">
-      SELECT name,value FROM ad_trend2
+      SELECT name,value FROM ad_medium_right
    </select>
 </mapper>
