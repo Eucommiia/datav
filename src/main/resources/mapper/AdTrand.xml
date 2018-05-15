@@ -4,7 +4,7 @@
    <resultMap id="BaseResultMap" type="com.juncdt.datav.model.AdTrandModel">
       <result column="id" jdbcType="VARCHAR" property="id" />
       <result column="ad_distribution" jdbcType="VARCHAR" property="adDistribution" />
-      <result column="ad_num" jdbcType="VARCHAR" property="adNumModel" />
+      <result column="ad_num" jdbcType="VARCHAR" property="adNum" />
    </resultMap>
    <select id="queryTrend" resultMap="BaseResultMap">
       SELECT ad_distribution,ad_num FROM ad_trend

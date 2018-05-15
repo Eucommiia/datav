@@ -15,7 +15,7 @@ import com.juncdt.datav.model.AcquisitionTrendModel;
 import com.juncdt.datav.model.AdAddModel;
 import com.juncdt.datav.model.AdMediumModel;
 import com.juncdt.datav.model.AdMediumTwoModel;
-import com.juncdt.datav.model.AdNumModel;
+import com.juncdt.datav.model.AdNum;
 import com.juncdt.datav.model.AdTrandModel;
 import com.juncdt.datav.model.AdTypeModel;
 import com.juncdt.datav.model.AreaTypeModel;
@@ -110,7 +110,7 @@ public class DatavService {
    /**
     * 广告量分布
     */
-   public List<AdNumModel> getAdNum() {
+   public List<AdNum> getAdNum() {
       return adNumMapper.queryAdNum();
    }
 

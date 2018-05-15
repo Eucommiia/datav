@@ -7,7 +7,7 @@ import com.juncdt.datav.model.AcquisitionTrendModel;
 import com.juncdt.datav.model.AdAddModel;
 import com.juncdt.datav.model.AdMediumModel;
 import com.juncdt.datav.model.AdMediumTwoModel;
-import com.juncdt.datav.model.AdNumModel;
+import com.juncdt.datav.model.AdNum;
 import com.juncdt.datav.model.AdTrandModel;
 import com.juncdt.datav.model.AdTypeModel;
 import com.juncdt.datav.model.AreaTypeModel;
@@ -111,10 +111,10 @@ public class DatavController {
     */
    @PostMapping(value = "/getAdNum")
    public ResultModel getAdNum() {
-      List<AdNumModel> adNumModel = datavService.getAdNum();
-      String[] ad = new String[adNumModel.size()];
-      for (int i = 0; i < adNumModel.size(); i++) {
-         ad[i] = adNumModel.get(i).getName();
+      List<AdNum> adNum = datavService.getAdNum();
+      String[] ad = new String[adNum.size()];
+      for (int i = 0; i < adNum.size(); i++) {
+         ad[i] = adNum.get(i).getName();
       }
       ad = distinctArray(ad);
       // 循环数组
@@ -125,9 +125,8 @@ public class DatavController {
          List<String> ad2 = datavService.getType(ad[j]);
          // name
          jsonObj.put("name", ad[j]);
-         //
+         // data
          jsonObj.put("data", ad1);
-
          // type
          jsonObj.put("y", ad2);
          jsonArray.add(jsonObj);

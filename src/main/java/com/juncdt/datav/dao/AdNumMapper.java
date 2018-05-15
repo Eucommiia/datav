@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AdNumModel;
+import com.juncdt.datav.model.AdNum;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface AdNumMapper {
 
-   List<AdNumModel> queryAdNum();
+   List<AdNum> queryAdNum();
 
    List<String> queryNum(@Param("name") String name);
    List<String> queryType(@Param("name") String name);
