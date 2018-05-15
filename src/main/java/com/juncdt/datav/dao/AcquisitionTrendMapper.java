@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AcquisitionTrend;
+import com.juncdt.datav.model.AcquisitionTrendModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,7 +21,7 @@ public interface AcquisitionTrendMapper {
     * @return
     */
 
-   List<AcquisitionTrend> queryAcquisitionTrend();
+   List<AcquisitionTrendModel> queryAcquisitionTrend();
 
    /**
     *

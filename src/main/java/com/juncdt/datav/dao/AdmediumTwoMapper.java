@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AdMediumTwo;
+import com.juncdt.datav.model.AdMediumTwoModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,5 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AdmediumTwoMapper {
 
 
-   List<AdMediumTwo> queryAdMediumTwo();
+   List<AdMediumTwoModel> queryAdMediumTwo();
 }

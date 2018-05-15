@@ -7,7 +7,7 @@ package com.juncdt.datav.model;
  * @author Luffy
  * @create 2018/5/10 15:33
  */
-public class AdType {
+public class AdTypeModel {
 
    private Integer id;
    private String value;

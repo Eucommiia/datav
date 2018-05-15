@@ -10,15 +10,17 @@ import com.juncdt.datav.dao.AdmediumMapper;
 import com.juncdt.datav.dao.AdmediumTwoMapper;
 import com.juncdt.datav.dao.AreaTypeMapper;
 import com.juncdt.datav.dao.IndustryDistributionMapper;
-import com.juncdt.datav.model.AcquisitionTrend;
-import com.juncdt.datav.model.AdAdd;
-import com.juncdt.datav.model.AdMedium;
-import com.juncdt.datav.model.AdMediumTwo;
-import com.juncdt.datav.model.AdNum;
-import com.juncdt.datav.model.AdTrand;
-import com.juncdt.datav.model.AdType;
-import com.juncdt.datav.model.AreaType;
-import com.juncdt.datav.model.IndustryDistribution;
+import com.juncdt.datav.dao.MapMapper;
+import com.juncdt.datav.model.AcquisitionTrendModel;
+import com.juncdt.datav.model.AdAddModel;
+import com.juncdt.datav.model.AdMediumModel;
+import com.juncdt.datav.model.AdMediumTwoModel;
+import com.juncdt.datav.model.AdNumModel;
+import com.juncdt.datav.model.AdTrandModel;
+import com.juncdt.datav.model.AdTypeModel;
+import com.juncdt.datav.model.AreaTypeModel;
+import com.juncdt.datav.model.IndustryDistributionModel;
+import com.juncdt.datav.model.MapModel;
 import com.juncdt.datav.model.vo.AdTotalVO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +66,9 @@ public class DatavService {
    @Autowired
    private AdTotalAddMapper adTotalAddMapper;
 
+   @Autowired
+   private MapMapper mapMapper;
+
    /**
     * 采集广告总量分布
     *
@@ -78,7 +83,7 @@ public class DatavService {
     *
     * @return 总数
     */
-   public List<AdType> getAdType() {
+   public List<AdTypeModel> getAdType() {
       return adTypeMapper.queryAdType();
    }
 
@@ -86,14 +91,14 @@ public class DatavService {
    /**
     * 行业分布
     */
-   public List<IndustryDistribution> getIndustryDistribution() {
+   public List<IndustryDistributionModel> getIndustryDistribution() {
       return industryDistributionMapper.queryIndustryDistribution();
    }
 
    /**
     * 采集趋势
     */
-   public List<AcquisitionTrend> getAcquisition() {
+   public List<AcquisitionTrendModel> getAcquisition() {
       return acquisitionTrendMapper.queryAcquisitionTrend();
    }
 
@@ -105,7 +110,7 @@ public class DatavService {
    /**
     * 广告量分布
     */
-   public List<AdNum> getAdNum() {
+   public List<AdNumModel> getAdNum() {
       return adNumMapper.queryAdNum();
    }
 
@@ -119,26 +124,41 @@ public class DatavService {
    }
 
 
-   public List<AreaType> getArea() {
+   public List<AreaTypeModel> getArea() {
       return areaTypeMapper.queryAreaType();
    }
 
-   public List<AdTrand> getTrend() {
+   public List<AdTrandModel> getTrend() {
       return adTrandMapper.queryTrend();
    }
 
-   public List<AdMedium> getAdMedium(){
+   /**
+    * .确认违法违规媒介分布(左)
+    * @return
+    */
+   public List<AdMediumModel> getAdMedium(){
       return admediumMapper.queryAdMedium();
    }
 
-
-   public List<AdMediumTwo> getAdMediumTwo(){
+   /**
+    *.确认违法违规媒介分布(右)
+    * @return
+    */
+   public List<AdMediumTwoModel> getAdMediumTwo(){
       return admediumTwoMapper.queryAdMediumTwo();
    }
 
-
-   public List<AdAdd> getAdTotalAdd(){
+   /**
+    *.监测采集范围
+    *
+    * @return
+    */
+   public List<AdAddModel> getAdTotalAdd(){
       return  adTotalAddMapper.queryTotalAdd();
+   }
+
+   public List<MapModel> getMap(){
+      return mapMapper.queryMap();
    }
 }
 

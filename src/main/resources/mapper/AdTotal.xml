@@ -3,7 +3,7 @@
 <mapper namespace="com.juncdt.datav.dao.AdTotalMapper">
   <resultMap id="BaseResultMap" type="com.juncdt.datav.model.vo.AdTotalVO">
     <result column="ad_distribution" jdbcType="VARCHAR" property="adDistribution" />
-    <result column="ad_num" jdbcType="VARCHAR" property="adNum" />
+    <result column="ad_num" jdbcType="VARCHAR" property="adNumModel" />
   </resultMap>
   <select id="queryAdTotal" resultMap="BaseResultMap">
      SELECT ad_distribution,ad_num FROM ad_total

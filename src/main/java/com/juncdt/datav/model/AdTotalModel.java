@@ -1,15 +1,27 @@
 package com.juncdt.datav.model;
 
+import javax.persistence.Table;
+
 /**
- * 认违法违规媒介分布(左)
+ * 采集广告总量model
  *
  * @author Luffy
- * @create 2018/5/14 11:24
+ * @create 2018/5/10 14:24
  */
-public class AdMedium {
+@Table(name = "ad_total")
+public class AdTotalModel {
 
+   /**
+    * id
+    */
    private Integer id;
+   /**
+    * 广告分布类型
+    */
    private String adDistribution;
+   /**
+    * 类型数量
+    */
    private String adNum;
 
    public Integer getId() {
@@ -34,5 +46,11 @@ public class AdMedium {
 
    public void setAdNum(String adNum) {
       this.adNum = adNum;
+   }
+
+   @Override
+   public String toString() {
+      return "AdTotalVO{" + "id=" + id + ", adDistribution='" + adDistribution + '\'' + ", adNum='"
+          + adNum + '\'' + '}';
    }
 }

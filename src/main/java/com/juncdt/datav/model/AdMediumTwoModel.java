@@ -1,20 +1,16 @@
 package com.juncdt.datav.model;
 
 /**
- * 行业分布
+ * 确认违法违规媒介分布(右)
  *
  * @author Luffy
- * @create 2018/5/11 9:15
+ * @create 2018/5/14 11:26
  */
-public class IndustryDistribution {
+public class AdMediumTwoModel {
 
    private Integer id;
-
    private String name;
-
    private String value;
-
-   private String color;
 
    public Integer getId() {
       return id;
@@ -38,13 +34,5 @@ public class IndustryDistribution {
 
    public void setValue(String value) {
       this.value = value;
-   }
-
-   public String getColor() {
-      return color;
-   }
-
-   public void setColor(String color) {
-      this.color = color;
    }
 }

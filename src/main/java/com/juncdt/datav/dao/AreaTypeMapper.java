@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AreaType;
+import com.juncdt.datav.model.AreaTypeModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,6 +17,6 @@ public interface AreaTypeMapper {
     *
     * @return
     */
-   List<AreaType> queryAreaType();
+   List<AreaTypeModel> queryAreaType();
 
 }

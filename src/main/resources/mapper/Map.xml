@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juncdt.datav.dao.MapMapper">
+   <resultMap id="BaseResultMap" type="com.juncdt.datav.model.MapModel">
+      <id column="id" jdbcType="INTEGER" property="id"/>
+      <result column="city" jdbcType="VARCHAR" property="city"/>
+      <result column="lng" jdbcType="VARCHAR" property="lng"/>
+      <result column="lat" jdbcType="VARCHAR" property="lat"/>
+      <result column="value" jdbcType="VARCHAR" property="value"/>
+   </resultMap>
+      <select id="queryMap" resultMap="BaseResultMap">
+        SELECT  city,lng,lat ,value FROM Map
+      </select>
+</mapper>

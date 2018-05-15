@@ -1,16 +1,16 @@
 package com.juncdt.datav.model;
 
 /**
- * 监测采集范围
+ * 确认违法违规行业分布
  *
  * @author Luffy
- * @create 2018/5/14 11:28
+ * @create 2018/5/14 11:20
  */
-public class AdAdd {
+public class AdTrandModel {
+
    private Integer id;
    private String adDistribution;
    private String adNum;
-   private String added;
 
    public Integer getId() {
       return id;
@@ -34,13 +34,5 @@ public class AdAdd {
 
    public void setAdNum(String adNum) {
       this.adNum = adNum;
-   }
-
-   public String getAdded() {
-      return added;
-   }
-
-   public void setAdded(String added) {
-      this.added = added;
    }
 }

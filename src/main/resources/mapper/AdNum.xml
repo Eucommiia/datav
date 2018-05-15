@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juncdt.datav.dao.AdNumMapper">
-   <resultMap id="BaseResultMap" type="com.juncdt.datav.model.AdNum">
+   <resultMap id="BaseResultMap" type="com.juncdt.datav.model.AdNumModel">
       <id column="id" jdbcType="INTEGER" property="id"/>
       <result column="name" jdbcType="VARCHAR" property="name"/>
       <result column="num" jdbcType="VARCHAR" property="num"/>

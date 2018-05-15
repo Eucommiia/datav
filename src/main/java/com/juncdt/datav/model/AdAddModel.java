@@ -1,28 +1,16 @@
 package com.juncdt.datav.model;
 
-import javax.persistence.Table;
-
 /**
- * 采集广告总量model
+ * 监测采集范围
  *
  * @author Luffy
- * @create 2018/5/10 14:24
+ * @create 2018/5/14 11:28
  */
-@Table(name = "ad_total")
-public class AdTotal {
-
-   /**
-    * id
-    */
+public class AdAddModel {
    private Integer id;
-   /**
-    * 广告分布类型
-    */
    private String adDistribution;
-   /**
-    * 类型数量
-    */
    private String adNum;
+   private String added;
 
    public Integer getId() {
       return id;
@@ -48,9 +36,11 @@ public class AdTotal {
       this.adNum = adNum;
    }
 
-   @Override
-   public String toString() {
-      return "AdTotalVO{" + "id=" + id + ", adDistribution='" + adDistribution + '\'' + ", adNum='"
-          + adNum + '\'' + '}';
+   public String getAdded() {
+      return added;
+   }
+
+   public void setAdded(String added) {
+      this.added = added;
    }
 }

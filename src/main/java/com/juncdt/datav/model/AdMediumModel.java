@@ -1,12 +1,12 @@
 package com.juncdt.datav.model;
 
 /**
- * 确认违法违规行业分布
+ * 认违法违规媒介分布(左)
  *
  * @author Luffy
- * @create 2018/5/14 11:20
+ * @create 2018/5/14 11:24
  */
-public class AdTrand {
+public class AdMediumModel {
 
    private Integer id;
    private String adDistribution;

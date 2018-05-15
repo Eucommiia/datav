@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AdAdd;
+import com.juncdt.datav.model.AdAddModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,6 +17,6 @@ public interface AdTotalAddMapper {
     *
     * @return
     */
-   List<AdAdd> queryTotalAdd();
+   List<AdAddModel> queryTotalAdd();
 
 }

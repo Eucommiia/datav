@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.IndustryDistribution;
+import com.juncdt.datav.model.IndustryDistributionModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -18,6 +18,6 @@ public interface IndustryDistributionMapper {
     *
     * @return
     */
-   List<IndustryDistribution> queryIndustryDistribution();
+   List<IndustryDistributionModel> queryIndustryDistribution();
 
 }

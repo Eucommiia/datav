@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AdType;
+import com.juncdt.datav.model.AdTypeModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AdTypeMapper {
 
-   List<AdType> queryAdType();
+   List<AdTypeModel> queryAdType();
 
 
 

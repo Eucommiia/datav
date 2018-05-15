@@ -1,16 +1,16 @@
 package com.juncdt.datav.model;
 
 /**
- * 采集趋势
+ * 确认违法违规地区
  *
  * @author Luffy
- * @create 2018/5/11 9:31
+ * @create 2018/5/14 11:19
  */
-public class AcquisitionTrend {
+public class AreaTypeModel {
 
    private Integer id;
    private String name;
-   private String value;
+   private String num;
 
    public Integer getId() {
       return id;
@@ -28,18 +28,16 @@ public class AcquisitionTrend {
       this.name = name;
    }
 
-   public String getValue() {
-      return value;
+   public String getNum() {
+      return num;
    }
 
-   public void setValue(String value) {
-      this.value = value;
+   public void setNum(String num) {
+      this.num = num;
    }
-
 
    @Override
    public String toString() {
-      return "AcquisitionTrend{" + "id=" + id + ", name='" + name + '\'' + ", value='" + value
-          + '\'' + '}';
+      return "AreaTypeModel{" + "id=" + id + ", name='" + name + '\'' + ", num='" + num + '\'' + '}';
    }
 }

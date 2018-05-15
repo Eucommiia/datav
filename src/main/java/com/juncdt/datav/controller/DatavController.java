@@ -3,22 +3,22 @@ package com.juncdt.datav.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.juncdt.datav.common.ResultModel;
-import com.juncdt.datav.model.AcquisitionTrend;
-import com.juncdt.datav.model.AdAdd;
-import com.juncdt.datav.model.AdMedium;
-import com.juncdt.datav.model.AdMediumTwo;
-import com.juncdt.datav.model.AdNum;
-import com.juncdt.datav.model.AdTrand;
-import com.juncdt.datav.model.AdType;
-import com.juncdt.datav.model.AreaType;
-import com.juncdt.datav.model.IndustryDistribution;
+import com.juncdt.datav.model.AcquisitionTrendModel;
+import com.juncdt.datav.model.AdAddModel;
+import com.juncdt.datav.model.AdMediumModel;
+import com.juncdt.datav.model.AdMediumTwoModel;
+import com.juncdt.datav.model.AdNumModel;
+import com.juncdt.datav.model.AdTrandModel;
+import com.juncdt.datav.model.AdTypeModel;
+import com.juncdt.datav.model.AreaTypeModel;
+import com.juncdt.datav.model.IndustryDistributionModel;
+import com.juncdt.datav.model.MapModel;
 import com.juncdt.datav.model.vo.AdTotalVO;
 import com.juncdt.datav.service.DatavService;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,13 +54,13 @@ public class DatavController {
     */
    @PostMapping(value = "/adType")
    public ResultModel getAdType() {
-      List<AdType> adType = datavService.getAdType();
+      List<AdTypeModel> adTypeModel = datavService.getAdType();
       JSONArray json = new JSONArray();
-      for (int i = 0; i < adType.size(); i++) {
+      for (int i = 0; i < adTypeModel.size(); i++) {
          JSONObject jsonType = new JSONObject();
-         jsonType.put("value", adType.get(i).getValue());
-         jsonType.put("name", adType.get(i).getName());
-         jsonType.put("color", adType.get(i).getColor());
+         jsonType.put("value", adTypeModel.get(i).getValue());
+         jsonType.put("name", adTypeModel.get(i).getName());
+         jsonType.put("color", adTypeModel.get(i).getColor());
          json.add(jsonType);
       }
       return ResultModel.success(json);
@@ -71,9 +71,9 @@ public class DatavController {
     */
    @PostMapping(value = "/getIndustryDistribution")
    public ResultModel getIndustryDistribution() {
-      List<IndustryDistribution> industryDistribution = datavService.getIndustryDistribution();
+      List<IndustryDistributionModel> industryDistributionModel = datavService.getIndustryDistribution();
       JSONArray jsonArr = new JSONArray();
-      for (IndustryDistribution id : industryDistribution) {
+      for (IndustryDistributionModel id : industryDistributionModel) {
          JSONObject jsonAdType = new JSONObject();
          jsonAdType.put("value", id.getValue());
          jsonAdType.put("name", id.getName());
@@ -88,7 +88,7 @@ public class DatavController {
     */
    @PostMapping(value = "/getAcquisition")
    public ResultModel getAcquisition() {
-      List<AcquisitionTrend> acquisition = datavService.getAcquisition();
+      List<AcquisitionTrendModel> acquisition = datavService.getAcquisition();
       String[] name = new String[acquisition.size()];
       for (int i = 0; i < acquisition.size(); i++) {
          name[i] = acquisition.get(i).getName();
@@ -111,10 +111,10 @@ public class DatavController {
     */
    @PostMapping(value = "/getAdNum")
    public ResultModel getAdNum() {
-      List<AdNum> adNum = datavService.getAdNum();
-      String[] ad = new String[adNum.size()];
-      for (int i = 0; i < adNum.size(); i++) {
-         ad[i] = adNum.get(i).getName();
+      List<AdNumModel> adNumModel = datavService.getAdNum();
+      String[] ad = new String[adNumModel.size()];
+      for (int i = 0; i < adNumModel.size(); i++) {
+         ad[i] = adNumModel.get(i).getName();
       }
       ad = distinctArray(ad);
       // 循环数组
@@ -140,7 +140,7 @@ public class DatavController {
     */
    @PostMapping(value = "/getAreaType")
    public ResultModel getArea() {
-      List<AreaType> area = datavService.getArea();
+      List<AreaTypeModel> area = datavService.getArea();
       JSONObject jsonObj = new JSONObject();
       JSONObject jsonObj1 = new JSONObject();
       JSONArray jsonArray = new JSONArray();
@@ -153,7 +153,7 @@ public class DatavController {
       jsonObj.put("data", jsonArray);
 
       jsonObj1.put("name", "y");
-      jsonObj1.put("data",jsonArray1);
+      jsonObj1.put("data", jsonArray1);
       JSONArray json = new JSONArray();
       json.add(jsonObj);
       json.add(jsonObj1);
@@ -165,21 +165,20 @@ public class DatavController {
     */
    @PostMapping(value = "/getTrend")
    public ResultModel getTrend() {
-      List<AdTrand> trend = datavService.getTrend();
+      List<AdTrandModel> trend = datavService.getTrend();
       JSONObject jsonAd = new JSONObject();
-      for (AdTrand ad : trend) {
+      for (AdTrandModel ad : trend) {
          jsonAd.put(ad.getAdDistribution(), ad.getAdNum());
       }
       return ResultModel.success(jsonAd);
    }
 
    /**
-    *
-    * @return
+    * 确认违法违规媒介分布(左)
     */
    @PostMapping(value = "/getAdMedium")
    public ResultModel getAdMedium() {
-      List<AdMedium> area = datavService.getAdMedium();
+      List<AdMediumModel> area = datavService.getAdMedium();
       JSONObject jsonObj = new JSONObject();
       JSONObject jsonObj1 = new JSONObject();
       JSONArray jsonArray = new JSONArray();
@@ -192,47 +191,76 @@ public class DatavController {
       jsonObj.put("data", jsonArray);
 
       jsonObj1.put("name", "x");
-      jsonObj1.put("data",jsonArray1);
+      jsonObj1.put("data", jsonArray1);
       JSONArray json = new JSONArray();
       json.add(jsonObj);
       json.add(jsonObj1);
       return ResultModel.success(json);
    }
 
+   /**
+    * 确认违法违规媒介分布(右)
+    */
    @PostMapping(value = "/getAdMediumTwo")
-   public ResultModel getAdMediumTwo(){
-      List<AdMediumTwo> adMediumTwo = datavService.getAdMediumTwo();
+   public ResultModel getAdMediumTwo() {
+      List<AdMediumTwoModel> adMediumTwoModel = datavService.getAdMediumTwo();
       JSONArray jsonArr = new JSONArray();
-      for(AdMediumTwo ad :adMediumTwo){
+      for (AdMediumTwoModel ad : adMediumTwoModel) {
          JSONObject jsonObject = new JSONObject();
-            jsonObject.put("name",ad.getName());
-            jsonObject.put("value",ad.getValue());
-            jsonArr.add(jsonObject);
+         jsonObject.put("name", ad.getName());
+         jsonObject.put("value", ad.getValue());
+         jsonArr.add(jsonObject);
       }
-      return  ResultModel.success(jsonArr);
+      return ResultModel.success(jsonArr);
 
    }
 
    /**
     * 采集监测范围
-    *
-    * @return
     */
    @PostMapping(value = "/getAdTotalAdd")
-   public ResultModel getAdTotalAdd(){
-      List<AdAdd> adTotalAdd = datavService.getAdTotalAdd();
+   public ResultModel getAdTotalAdd() {
+      List<AdAddModel> adTotalAdd = datavService.getAdTotalAdd();
       JSONArray jsonArr = new JSONArray();
-      for(AdAdd ad :adTotalAdd){
+      for (AdAddModel ad : adTotalAdd) {
          JSONObject jsonObject = new JSONObject();
-         jsonObject.put("name",ad.getAdDistribution());
-         jsonObject.put("num",ad.getAdNum());
-         jsonObject.put("added","");
+         jsonObject.put("name", ad.getAdDistribution());
+         jsonObject.put("num", ad.getAdNum());
+         jsonObject.put("added", "");
          jsonArr.add(jsonObject);
       }
-      return  ResultModel.success(jsonArr);
+      return ResultModel.success(jsonArr);
 
 
    }
+
+   /**
+    * 地图
+    *
+    * @return
+    */
+   @PostMapping(value = "/getMap")
+   public ResultModel getMap() {
+      List<MapModel> mapModels =  datavService.getMap();
+      JSONObject jsonMap = new JSONObject();
+      JSONObject json = new JSONObject();
+      JSONArray jsonArr1 = new JSONArray();
+      for(MapModel ma : mapModels){
+         JSONArray jsonArr = new JSONArray();
+         jsonArr.add(ma.getLng());
+         jsonArr.add(ma.getLat());
+         json.put(ma.getCity(),jsonArr);
+         JSONObject jsonObj = new JSONObject();
+         jsonObj.put("name",ma.getCity());
+         jsonObj.put("value",ma.getValue());
+         jsonArr1.add(jsonObj);
+      }
+      jsonMap.put("geoCoordMap",json);
+      jsonMap.put("dataFormat","佛山");
+      jsonMap.put("data",jsonArr1);
+   return ResultModel.success(jsonMap);
+   }
+
 
    /**
     * 数组去重

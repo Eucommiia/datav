@@ -1,6 +1,6 @@
 package com.juncdt.datav.dao;
 
-import com.juncdt.datav.model.AdTrand;
+import com.juncdt.datav.model.AdTrandModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AdTrandMapper {
 
-   List<AdTrand> queryTrend();
+   List<AdTrandModel> queryTrend();
 
 }

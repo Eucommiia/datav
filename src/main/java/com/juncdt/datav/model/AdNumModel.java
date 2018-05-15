@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * @author Luffy
  * @create 2018/5/14 10:02
  */
-public class AdNum {
+public class AdNumModel {
 
    private Integer id;
    private String name;
@@ -49,7 +49,7 @@ public class AdNum {
 
    @Override
    public String toString() {
-      return "AdNum{" + "id=" + id + ", name='" + name + '\'' + ", num='" + num + '\'' + ", type='"
+      return "AdNumModel{" + "id=" + id + ", name='" + name + '\'' + ", num='" + num + '\'' + ", type='"
           + type + '\'' + '}';
    }
 }
